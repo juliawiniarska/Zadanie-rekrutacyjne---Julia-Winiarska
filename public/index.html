@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadanie rekrutacyjne Julia Winiarska</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .form-group {
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group-inline {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .form-group-inline .form-group {
+        flex: 1;
+      }
+
+      input[type="number"],
+      input[type="text"] {
+        border: 1px solid #ccc;
+        padding: 8px;
+        border-radius: 4px;
+        margin-top: 4px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .color-container {
+        position: relative;
+        display: none;
+      }
+
+      .color-preview {
+        width: 40px;
+        height: 40px;
+        background-color: #FFA500;
+        border: 1px solid #000;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+
+      #color-picker {
+        position: absolute;
+        top: 0;
+        left: 50px;
+        z-index: 1000;
+        display: none;
+      }
+
+      .selected-module-pane__module {
+        display: none;
+        background-color: #f0f0f0;
+        padding: 16px;
+        border-radius: 4px;
+      }
+
+      .selected-module-pane__module.visible {
+        display: block;
+      }
+
+      .form-group-typo {
+        display: none;
+      }
+
+    </style>
+  </head>
+  <body class="body">
+    <nav class="nav">
+      <img src="/logo.svg" alt="logo" />
+      <button class="button" id="generateButton">GENERATE FILES</button>
+    </nav>
+    <main class="main">
+      <section class="pane available-modules-pane">
+        <h3>AVAILABLE MODULES</h3>
+        <button class="available-modules-pane__button button" id="backgroundButton">BACKGROUND</button>
+        <button class="available-modules-pane__button button" id="typoButton">TYPO</button>
+      </section>
+      <section class="pane selected-module-pane">
+        <h3>SELECTED MODULE</h3>
+        <div class="selected-module-pane__module" id="selectedModule">
+          <span id="selectedModuleType"></span>
+        </div>
+      </section>
+      <section class="pane module-settings-pane">
+        <h3>MODULE SETTINGS</h3>
+        <div class="form-group">
+          <label for="clickout">Clickout</label>
+          <input
+            id="clickout"
+            type="text"
+            name="clickout"
+            placeholder="https://github.com/juliawiniarska/Zadanie-rekrutacyjne---Julia-Winiarska"
+            value="https://github.com/juliawiniarska/Zadanie-rekrutacyjne---Julia-Winiarska"
+          />
+        </div>
+        <div class="form-group-inline">
+          <div class="form-group">
+            <label for="width">Width (%)</label>
+            <input id="width" type="number" name="width" placeholder="100" value="100" />
+          </div>
+          <div class="form-group">
+            <label for="height">Height (%)</label>
+            <input id="height" type="number" name="height" placeholder="100" value="100" />
+          </div>
+        </div>
+        <div class="form-group-inline">
+          <div class="form-group">
+            <label for="positionX">Position X (%)</label>
+            <input id="positionX" type="number" name="positionX" placeholder="0" value="0" />
+          </div>
+          <div class="form-group">
+            <label for="positionY">Position Y (%)</label>
+            <input id="positionY" type="number" name="positionY" placeholder="0" value="0" />
+          </div>
+        </div>
+        <div class="form-group color-container" id="colorContainer">
+          <label for="color-picker">Background color</label>
+          <div class="color-preview" id="color-preview"></div>
+          <input id="color-picker" type="color" name="color" value="#FFA500" />
+        </div>
+        <div class="form-group form-group-typo" id="typoContentContainer">
+          <label for="content">Typo Content</label>
+          <input
+            id="content"
+            type="text"
+            name="content"
+            placeholder="Zadanie rekrutacyjne-Julia-Winiarska"
+            value="Zadanie rekrutacyjne-Julia-Winiarska"
+          />
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
